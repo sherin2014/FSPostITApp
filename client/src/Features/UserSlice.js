@@ -14,7 +14,7 @@ const initialState = {
 
 export const login = createAsyncThunk("users/login", async (userData) => {
   try {
-    const response = await axios.post("https://fspostitapp.onrender.com/login", {
+    const response = await axios.post("https://fspostitapp-server.onrender.com/login", {
       email: userData.email,
       password: userData.password,
     });
@@ -33,7 +33,7 @@ export const login = createAsyncThunk("users/login", async (userData) => {
 export const logout = createAsyncThunk("/users/logout", async () => {
   try {
     // Send a request to your server to log the user out
-    const response = await axios.post("https://fspostitapp.onrender.com/logout");
+    const response = await axios.post("https://fspostitapp-server.onrender.com/logout");
   } catch (error) {}
 });
 
@@ -42,7 +42,7 @@ export const registerUser = createAsyncThunk("users/registerUser",
   {
     try
     {
-      const response = await axios.post("https://fspostitapp.onrender.com/registerUser",
+      const response = await axios.post("https://fspostitapp-server.onrender.com/registerUser",
         {
           name:userData.name,
           email:userData.email,
@@ -96,7 +96,7 @@ export const updateUserProfile = createAsyncThunk(
   async (formData) => {
     try {
       const response = await axios.put(
-        `https://fspostitapp.onrender.com/${formData.get("email")}`,
+        `https://fspostitapp-server.onrender.com/${formData.get("email")}`,
         formData,
         {
           headers: {
