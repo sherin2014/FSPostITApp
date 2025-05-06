@@ -238,7 +238,7 @@ app.put("/updateUserProfile/:email/",   upload.single("profilePic"),
   }
 
 });
-
-app.listen(3001, () => {
-  console.log("You are connected");
+const port = process.env.PORT || 3001;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
